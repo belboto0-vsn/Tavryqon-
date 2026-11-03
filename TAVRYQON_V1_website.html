@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TAVRYQON — One Ecosystem. Endless Innovation. A digital universe founded by Ruman Hussain.">
+<title>TAVRYQON — One Ecosystem. Endless Innovation.</title>
+<style>
+:root{
+  --bg:#05070c;--panel:#0b101a;--panel2:#101725;--line:#1c2a3f;
+  --text:#f5f7fb;--muted:#8d9ab0;--blue:#36a3ff;--blue2:#66c4ff;
+  --green:#45e0a0;--danger:#ff647c;--shadow:0 20px 70px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:
+radial-gradient(circle at 80% 10%,rgba(54,163,255,.13),transparent 28%),
+radial-gradient(circle at 10% 35%,rgba(69,224,160,.06),transparent 22%),var(--bg);
+color:var(--text);line-height:1.5}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.container{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:100;background:rgba(5,7,12,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:25px;font-weight:900;letter-spacing:3px}
+.logo span{color:var(--blue)}
+.navlinks{display:flex;gap:7px;align-items:center}
+.navlinks a{padding:10px 13px;border-radius:10px;color:#b9c5d7;font-size:14px}
+.navlinks a:hover{background:#111a29;color:white}
+.menu{display:none;background:none;border:1px solid var(--line);color:white;padding:9px 11px;border-radius:9px}
+.hero{min-height:690px;display:grid;place-items:center;padding:80px 0 65px;position:relative;overflow:hidden}
+.gridglow{position:absolute;inset:0;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:55px 55px;mask-image:linear-gradient(to bottom,#000,transparent)}
+.hero-content{position:relative;text-align:center;max-width:920px}
+.eyebrow{display:inline-flex;border:1px solid #24415f;background:#0b1726;color:#78c8ff;border-radius:999px;padding:8px 15px;font-size:12px;letter-spacing:1.5px;font-weight:800}
+.hero h1{font-size:clamp(52px,10vw,105px);line-height:.9;letter-spacing:-5px;margin:25px 0 20px}
+.hero h1 span{background:linear-gradient(100deg,#fff,#55b8ff 55%,#8ce4c4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h2{font-size:clamp(20px,3vw,32px);font-weight:500;color:#c8d2e1}
+.hero p{max-width:680px;margin:20px auto;color:var(--muted);font-size:17px}
+.cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{border:1px solid var(--line);background:#101927;color:white;padding:13px 20px;border-radius:11px;font-weight:750;transition:.2s}
+.btn:hover{transform:translateY(-2px);border-color:#315779}
+.btn.primary{background:linear-gradient(135deg,#1787e8,#3db7ff);border:none;color:#00101d;box-shadow:0 10px 35px rgba(54,163,255,.2)}
+.founder{margin-top:28px;color:#738197;font-size:13px}.founder strong{color:#dfe8f4}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:50px}
+.stat{background:rgba(12,18,29,.75);border:1px solid var(--line);border-radius:15px;padding:18px}
+.stat b{display:block;font-size:24px}.stat span{font-size:12px;color:var(--muted)}
+section{padding:95px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:35px}
+.kicker{font-size:12px;color:#62bfff;letter-spacing:2px;font-weight:800;text-transform:uppercase}
+h2.section-title{font-size:clamp(32px,5vw,53px);line-height:1;margin-top:9px;letter-spacing:-2px}
+.section-head p{max-width:440px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:linear-gradient(145deg,rgba(16,23,37,.94),rgba(8,12,20,.94));border:1px solid var(--line);border-radius:20px;padding:25px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;width:130px;height:130px;right:-60px;top:-60px;background:rgba(54,163,255,.12);filter:blur(20px);border-radius:50%}
+.icon{width:45px;height:45px;border:1px solid #29415d;background:#0c1725;border-radius:13px;display:grid;place-items:center;font-size:21px;margin-bottom:18px}
+.card h3{font-size:21px;margin-bottom:8px}.card p{color:var(--muted);font-size:14px}.tag{display:inline-block;margin-top:18px;color:#75c9ff;font-size:12px}
+.dashboard{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
+.panel{background:#0a101a;border:1px solid var(--line);border-radius:20px;padding:25px}
+.panel h3{margin-bottom:15px}
+.feature-list{display:grid;gap:10px}
+.feature{display:flex;align-items:center;justify-content:space-between;padding:15px;background:#0e1623;border:1px solid #18263a;border-radius:13px}
+.feature small{color:var(--muted)}
+.badge{font-size:11px;border:1px solid #23533f;color:#64e7b1;padding:4px 8px;border-radius:99px}
+.tools{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.tool{min-height:260px}
+.field{width:100%;background:#080d15;color:white;border:1px solid #25364e;border-radius:10px;padding:12px;margin-top:10px;outline:none}
+.field:focus{border-color:#3a94d7}
+.result{margin-top:13px;background:#070b12;border:1px dashed #29415d;border-radius:11px;padding:14px;color:#d6dfeb;min-height:55px}
+.game-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.game-tabs button{border:1px solid var(--line);background:#0c1420;color:#c7d2e2;border-radius:10px;padding:10px 14px}
+.game-tabs button.active{background:#153553;color:#72c9ff;border-color:#2b638e}
+.game{display:none}.game.active{display:block}
+.tic{width:min(330px,100%);display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:15px auto}
+.cell{aspect-ratio:1;background:#101a29;border:1px solid #20354e;border-radius:12px;color:white;font-size:35px;font-weight:900}
+.cell:hover{background:#16253a}
+.gamecenter{text-align:center}
+canvas{display:block;max-width:100%;margin:12px auto;background:#060b12;border:1px solid #20344d;border-radius:14px}
+.controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+.ctrl{min-width:50px;background:#111d2d;border:1px solid #29415e;color:white;padding:10px;border-radius:10px}
+.palette{display:grid;grid-template-columns:repeat(5,1fr);height:120px;border-radius:14px;overflow:hidden;border:1px solid var(--line);margin-top:15px}
+.swatch{display:flex;align-items:end;justify-content:center;padding:8px;font-size:11px;background:#182230}
+.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px}
+.mini{padding:14px;background:#0d1622;border:1px solid #1b2b41;border-radius:11px}
+.faq{display:grid;gap:10px}.faq details{background:#0b111b;border:1px solid var(--line);border-radius:12px;padding:17px}.faq summary{cursor:pointer;font-weight:700}.faq p{color:var(--muted);margin-top:10px;font-size:14px}
+.contact{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px}
+textarea.field{min-height:150px;resize:vertical}
+footer{border-top:1px solid rgba(255,255,255,.07);padding:35px 0;color:#748196}
+.footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.notice{margin-top:18px;padding:12px 14px;background:#0b1521;border:1px solid #20364e;border-radius:10px;color:#8fa1b8;font-size:12px}
+@media(max-width:850px){
+ .navlinks{display:none}.menu{display:block}.navlinks.open{position:absolute;display:flex;flex-direction:column;top:74px;left:0;right:0;background:#070b12;border-bottom:1px solid var(--line);padding:12px}
+ .navlinks a{width:100%}.stats{grid-template-columns:repeat(2,1fr)}.cards,.dashboard,.contact,.tools{grid-template-columns:1fr}
+ .section-head{display:block}.section-head p{margin-top:14px}.hero{min-height:650px}.hero h1{letter-spacing:-3px}
+}
+@media(max-width:480px){.stats{grid-template-columns:1fr 1fr}.stat{padding:13px}.palette{height:105px}.hero p{font-size:15px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">TAVRY<span>QON</span></a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#home">Home</a><a href="#ecosystem">Ecosystem</a><a href="#gaming">Gaming</a>
+      <a href="#innovation">Innovation</a><a href="#creative">Creative</a><a href="#ai">AI Lab</a>
+      <a href="#about">About</a>
+    </nav>
+    <button class="menu" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="gridglow"></div>
+  <div class="container hero-content">
+    <div class="eyebrow">WELCOME TO RUMAN'S DIGITAL UNIVERSE</div>
+    <h1><span>TAVRYQON</span></h1>
+    <h2>One Ecosystem. Endless Innovation.</h2>
+    <p>A futuristic digital platform bringing gaming, ideas, creativity and AI-inspired tools together in one place.</p>
+    <div class="cta">
+      <a class="btn primary" href="#ecosystem">Explore TAVRYQON →</a>
+      <a class="btn" href="#gaming">Play Games</a>
+    </div>
+    <div class="founder">Founded by <strong>Ruman Hussain</strong> · Independent digital project</div>
+    <div class="stats">
+      <div class="stat"><b>05</b><span>Core Labs</span></div>
+      <div class="stat"><b>04</b><span>Game Prototypes</span></div>
+      <div class="stat"><b>10+</b><span>Built-in Tools</span></div>
+      <div class="stat"><b>01</b><span>Unified Ecosystem</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="ecosystem">
+<div class="container">
+ <div class="section-head"><div><div class="kicker">The ecosystem</div><h2 class="section-title">Everything starts here.</h2></div><p>Five connected spaces designed as the foundation of the TAVRYQON universe.</p></div>
+ <div class="cards">
+  <a class="card" href="#gaming"><div class="icon">🎮</div><h3>Gaming Lab</h3><p>Play original browser game prototypes built directly into the platform.</p><span class="tag">EXPLORE GAMES →</span></a>
+  <a class="card" href="#innovation"><div class="icon">⚡</div><h3>Innovation Lab</h3><p>Turn random ideas into project concepts, plans and a personal idea vault.</p><span class="tag">CREATE IDEAS →</span></a>
+  <a class="card" href="#creative"><div class="icon">✦</div><h3>Digital Creativity</h3><p>Generate palettes, brand concepts and poster ideas for digital projects.</p><span class="tag">CREATE →</span></a>
+  <a class="card" href="#ai"><div class="icon">◎</div><h3>AI Lab</h3><p>Try local prompt and writing utilities while the platform is still in prototype stage.</p><span class="tag">OPEN AI LAB →</span></a>
+  <a class="card" href="#about"><div class="icon">◈</div><h3>Command Center</h3><p>A central dashboard showing the current direction and build status of TAVRYQON.</p><span class="tag">VIEW STATUS →</span></a>
+  <div class="card"><div class="icon">🌐</div><h3>Built for the Web</h3><p>Responsive interface designed for phones, tablets and laptops.</p><span class="tag">MOBILE + DESKTOP</span></div>
+ </div>
+</div>
+</section>
+
+<section id="gaming">
+<div class="container">
+ <div class="section-head"><div><div class="kicker">Gaming lab</div><h2 class="section-title">Play. Build. Repeat.</h2></div><p>Original mini-game prototypes. No gambling, no real-money play.</p></div>
+ <div class="panel">
+  <div class="game-tabs">
+   <button class="active" onclick="showGame('tic',this)">Tic-Tac-Toe</button>
+   <button onclick="showGame('snake',this)">Snake</button>
+   <button onclick="showGame('runner',this)">Endless Runner</button>
+   <button onclick="showGame('match',this)">Match Grid</button>
+  </div>
+  <div id="tic" class="game active gamecenter">
+    <h3 id="turnText">Player X's turn</h3><div class="tic" id="ticBoard"></div>
+    <p id="ticStatus" style="color:var(--muted)">X: 0 · O: 0</p>
+    <button class="btn primary" onclick="resetTic()">New Round</button>
+  </div>
+  <div id="snake" class="game gamecenter">
+    <h3>Snake</h3><canvas id="snakeCanvas" width="360" height="360"></canvas>
+    <div class="controls"><button class="ctrl" onclick="snakeDir('up')">▲</button><button class="ctrl" onclick="snakeDir('left')">◀</button><button class="ctrl" onclick="snakeDir('down')">▼</button><button class="ctrl" onclick="snakeDir('right')">▶</button></div>
+    <p style="color:var(--muted);margin:10px">Use arrow keys or buttons.</p><button class="btn" onclick="startSnake()">Start / Restart</button>
+  </div>
+  <div id="runner" class="game gamecenter">
+    <h3>Endless Runner</h3><canvas id="runnerCanvas" width="700" height="260"></canvas>
+    <p id="runnerScore" style="color:var(--muted)">Score: 0</p>
+    <button class="btn primary" onclick="startRunner()">Start / Restart</button>
+    <p style="color:var(--muted);margin-top:8px">Tap the game or press Space to jump.</p>
+  </div>
+  <div id="match" class="game gamecenter">
+    <h3>Match Grid</h3><p style="color:var(--muted)">Match three identical symbols.</p>
+    <div id="matchGrid" style="width:min(380px,100%);display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:18px auto"></div>
+    <p id="matchScore" style="color:var(--muted)">Score: 0</p>
+    <button class="btn primary" onclick="newMatch()">New Board</button>
+  </div>
+ </div>
+</div>
+</section>
+
+<section id="innovation">
+<div class="container">
+ <div class="section-head"><div><div class="kicker">Innovation lab</div><h2 class="section-title">Ideas into action.</h2></div><p>Generate an idea, break it into steps, and keep it in your temporary vault.</p></div>
+ <div class="tools">
+  <div class="panel tool"><h3>⚡ Idea Generator</h3><p style="color:var(--muted)">Create a random digital project concept.</p><button class="btn primary" style="margin-top:15px" onclick="newIdea()">Generate Idea</button><div id="ideaResult" class="result">Your next idea will appear here.</div></div>
+  <div class="panel tool"><h3>🧭 Project Planner</h3><input id="projectName" class="field" placeholder="Enter project name"><button class="btn primary" style="margin-top:12px" onclick="planProject()">Build Plan</button><div id="planResult" class="result">A simple 5-step plan will appear here.</div></div>
+  <div class="panel tool"><h3>🗃️ Idea Vault</h3><p style="color:var(--muted)">Saved only during this browser session.</p><button class="btn" style="margin-top:15px" onclick="saveIdea()">Save Current Idea</button><div id="vault" class="result">Vault is empty.</div></div>
+  <div class="panel tool"><h3>🚀 Build Status</h3><div class="feature-list">
+    <div class="feature"><span>Core interface</span><span class="badge">READY</span></div>
+    <div class="feature"><span>Browser games</span><span class="badge">LIVE</span></div>
+    <div class="feature"><span>Cloud accounts</span><small>Future</small></div>
+    <div class="feature"><span>Real AI API</span><small>Future</small></div>
+  </div></div>
+ </div>
+</div>
+</section>
+
+<section id="creative">
+<div class="container">
+ <div class="section-head"><div><div class="kicker">Digital creativity</div><h2 class="section-title">Make it look yours.</h2></div><p>Quick visual tools for creators, brands and future projects.</p></div>
+ <div class="tools">
+  <div class="panel tool"><h3>🎨 Palette Generator</h3><button class="btn primary" onclick="palette()">Generate Palette</button><div class="palette" id="palette"></div><div id="paletteCodes" class="mini-grid"></div></div>
+  <div class="panel tool"><h3>✦ Brand Name Generator</h3><button class="btn primary" onclick="brandName()">Generate Name</button><div id="brandResult" class="result">Find a new brand name.</div></div>
+  <div class="panel tool"><h3>🖼️ Poster Concept</h3><input id="posterTitle" class="field" placeholder="Poster title"><input id="posterSubtitle" class="field" placeholder="Short subtitle"><button class="btn primary" style="margin-top:12px" onclick="makePoster()">Preview Poster</button><div id="poster" class="result" style="min-height:160px;display:grid;place-items:center;text-align:center"></div></div>
+  <div class="panel tool"><h3>📋 Creator Toolkit</h3><div class="feature-list"><div class="feature"><span>Colour system</span><span class="badge">READY</span></div><div class="feature"><span>Brand concept</span><span class="badge">READY</span></div><div class="feature"><span>Poster concept</span><span class="badge">READY</span></div><div class="feature"><span>Export suite</span><small>Next phase</small></div></div></div>
+ </div>
+</div>
+</section>
+
+<section id="ai">
+<div class="container">
+ <div class="section-head"><div><div class="kicker">AI lab</div><h2 class="section-title">Ideas, accelerated.</h2></div><p>Prototype utilities that work locally in this file. They are not connected to a live AI model.</p></div>
+ <div class="tools">
+  <div class="panel tool"><h3>✍️ Writing Starter</h3><input id="writeTopic" class="field" placeholder="Topic e.g. future city"><button class="btn primary" style="margin-top:12px" onclick="writeStarter()">Generate</button><div id="writeResult" class="result"></div></div>
+  <div class="panel tool"><h3>🎬 Story Starter</h3><button class="btn primary" onclick="storyStarter()">Generate Story Idea</button><div id="storyResult" class="result"></div></div>
+  <div class="panel tool"><h3>🧠 Prompt Builder</h3><input id="promptSubject" class="field" placeholder="What do you want to create?"><button class="btn primary" style="margin-top:12px" onclick="buildPrompt()">Build Prompt</button><div id="promptResult" class="result"></div></div>
+  <div class="panel tool"><h3>ℹ️ Transparency</h3><p style="color:var(--muted)">This first version uses JavaScript templates and randomisation. No external AI service, API key, account or cloud model is being secretly used.</p><div class="notice">For a real AI product, TAVRYQON will need a secure backend so API keys are never exposed in the browser.</div></div>
+ </div>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+ <div class="section-head"><div><div class="kicker">About TAVRYQON</div><h2 class="section-title">A project with a bigger vision.</h2></div><p>TAVRYQON is being built step by step — starting with a strong web foundation and expanding into a larger ecosystem.</p></div>
+ <div class="dashboard">
+  <div class="panel"><h3>Founder</h3><p style="font-size:28px;font-weight:850;margin:8px 0">Ruman Hussain</p><p style="color:var(--muted)">Founder of TAVRYQON and creator of this digital ecosystem concept.</p><div class="notice">WELCOME TO RUMAN'S DIGITAL UNIVERSE<br><strong style="color:white">TAVRYQON — One Ecosystem. Endless Innovation.</strong></div></div>
+  <div class="panel"><h3>Vision</h3><div class="feature-list"><div class="feature"><span>Gaming</span><span class="badge">NOW</span></div><div class="feature"><span>Creative tools</span><span class="badge">NOW</span></div><div class="feature"><span>Innovation</span><span class="badge">NOW</span></div><div class="feature"><span>Scalable platform</span><small>BUILDING</small></div></div></div>
+ </div>
+</div>
+</section>
+
+<section id="faq">
+<div class="container">
+ <div class="section-head"><div><div class="kicker">FAQ</div><h2 class="section-title">Questions, answered.</h2></div></div>
+ <div class="faq">
+  <details><summary>Is this the complete final TAVRYQON platform?</summary><p>This is a substantial single-file MVP/preview. It gives TAVRYQON a real website structure and working browser features, while advanced backend features remain future phases.</p></details>
+  <details><summary>Does the AI Lab use real AI?</summary><p>No. The current AI Lab is clearly labelled as a local prototype using templates. Real AI can be connected later through a secure backend.</p></details>
+  <details><summary>Are the games real-money or gambling games?</summary><p>No. They are free browser mini-games only.</p></details>
+  <details><summary>Does this website collect accounts or passwords?</summary><p>No account system or password collection exists in this version.</p></details>
+  <details><summary>Can this become a public global website?</summary><p>Yes, the HTML can be hosted publicly. Before launch, add a real domain/hosting setup, reviewed privacy/terms pages, secure backend features where needed, and any required legal checks.</p></details>
+ </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+ <div class="section-head"><div><div class="kicker">Connect</div><h2 class="section-title">Bring the next idea.</h2></div><p>The form below opens your email app; this static prototype does not send or store messages by itself.</p></div>
+ <div class="contact">
+  <div class="panel"><h3>TAVRYQON</h3><p style="color:var(--muted);margin-top:10px">One ecosystem for games, ideas, creativity and future digital products.</p><div class="notice">Founded by Ruman Hussain</div></div>
+  <form class="panel" onsubmit="sendMail(event)"><input id="contactName" class="field" placeholder="Your name" required><input id="contactEmail" type="email" class="field" placeholder="Your email" required><textarea id="contactMessage" class="field" placeholder="Your message" required></textarea><button class="btn primary" style="margin-top:12px">Open Email Draft →</button></form>
+ </div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container footerin"><div><strong>TAVRYQON</strong> · One Ecosystem. Endless Innovation.</div><div>© 2026 TAVRYQON · Founded by Ruman Hussain</div></div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('navlinks').classList.toggle('open')}
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+
+function showGame(id,btn){document.querySelectorAll('.game').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.game-tabs button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');if(id==='snake') drawSnake();if(id==='runner') drawRunner();}
+
+let ticCells=Array(9).fill(''),ticTurn='X',ticX=0,ticO=0,ticOver=false;
+function drawTic(){const b=document.getElementById('ticBoard');b.innerHTML='';ticCells.forEach((v,i)=>{let x=document.createElement('button');x.className='cell';x.textContent=v;x.onclick=()=>ticMove(i);b.appendChild(x)});document.getElementById('turnText').textContent=ticOver?'Round finished':`Player ${ticTurn}'s turn`;document.getElementById('ticStatus').textContent=`X: ${ticX} · O: ${ticO}`}
+function ticMove(i){if(ticCells[i]||ticOver)return;ticCells[i]=ticTurn;let wins=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];let win=wins.find(w=>w.every(n=>ticCells[n]===ticTurn));if(win){ticOver=true;ticTurn==='X'?ticX++:ticO++;document.getElementById('turnText').textContent=`Player ${ticTurn} wins!`}else if(ticCells.every(Boolean)){ticOver=true;document.getElementById('turnText').textContent='Draw!'}else ticTurn=ticTurn==='X'?'O':'X';drawTic()}
+function resetTic(){ticCells=Array(9).fill('');ticTurn='X';ticOver=false;drawTic()}drawTic();
+
+const sc=document.getElementById('snakeCanvas'),sx=sc.getContext('2d');let snake=[],food={x:10,y:10},sdir={x:1,y:0},snakeTimer=null;
+function startSnake(){snake=[{x:8,y:10},{x:7,y:10},{x:6,y:10}];sdir={x:1,y:0};placeFood();clearInterval(snakeTimer);snakeTimer=setInterval(stepSnake,115);drawSnake()}
+function placeFood(){food={x:Math.floor(Math.random()*18),y:Math.floor(Math.random()*18)}}
+function snakeDir(d){let nd={up:{x:0,y:-1},down:{x:0,y:1},left:{x:-1,y:0},right:{x:1,y:0}}[d];if(nd.x!==-sdir.x||nd.y!==-sdir.y)sdir=nd}
+function stepSnake(){if(!snake.length)startSnake();let h={x:snake[0].x+sdir.x,y:snake[0].y+sdir.y};if(h.x<0||h.y<0||h.x>=18||h.y>=18||snake.some(p=>p.x===h.x&&p.y===h.y)){clearInterval(snakeTimer);return}snake.unshift(h);if(h.x===food.x&&h.y===food.y)placeFood();else snake.pop();drawSnake()}
+function drawSnake(){sx.fillStyle='#060b12';sx.fillRect(0,0,360,360);sx.strokeStyle='#101b29';for(let i=0;i<=18;i++){sx.beginPath();sx.moveTo(i*20,0);sx.lineTo(i*20,360);sx.stroke();sx.beginPath();sx.moveTo(0,i*20);sx.lineTo(360,i*20);sx.stroke()}sx.fillStyle='#ff657d';sx.fillRect(food.x*20+3,food.y*20+3,14,14);snake.forEach((p,i)=>{sx.fillStyle=i?'#36a3ff':'#72d0ff';sx.fillRect(p.x*20+2,p.y*20+2,16,16)})}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowUp')snakeDir('up');if(e.key==='ArrowDown')snakeDir('down');if(e.key==='ArrowLeft')snakeDir('left');if(e.key==='ArrowRight')snakeDir('right')});startSnake();
+
+const rc=document.getElementById('runnerCanvas'),rx=rc.getContext('2d');let runner={y:205,vy:0,ground:205,obs:700,score:0,run:false};
+function jump(){if(runner.y>=runner.ground){runner.vy=-12;}}
+function startRunner(){runner={y:205,vy:0,ground:205,obs:700,score:0,run:true};requestAnimationFrame(runnerLoop)}
+function drawRunner(){rx.fillStyle='#060b12';rx.fillRect(0,0,700,260);rx.strokeStyle='#1b3045';rx.beginPath();rx.moveTo(0,220);rx.lineTo(700,220);rx.stroke();rx.fillStyle='#36a3ff';rx.fillRect(80,runner.y,28,28);rx.fillStyle='#ff657d';rx.fillRect(runner.obs,195,25,25);document.getElementById('runnerScore').textContent='Score: '+Math.floor(runner.score)}
+function runnerLoop(){if(!runner.run)return;runner.vy+=.55;runner.y+=runner.vy;if(runner.y>runner.ground)runner.y=runner.ground;runner.obs-=7;if(runner.obs<-30){runner.obs=700+Math.random()*250;runner.score+=10}if(runner.obs<108&&runner.obs>60&&runner.y>170){runner.run=false;document.getElementById('runnerScore').textContent='Game over · Score: '+Math.floor(runner.score);drawRunner();return}runner.score+=.08;drawRunner();requestAnimationFrame(runnerLoop)}
+rc.addEventListener('pointerdown',jump);document.addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();jump()}});drawRunner();
+
+const symbols=['◆','●','▲','★','✦','⬟'];let matchArr=[],matchScore=0,selected=null;
+function newMatch(){matchArr=Array.from({length:36},()=>symbols[Math.floor(Math.random()*symbols.length)]);matchScore=0;selected=null;renderMatch()}
+function renderMatch(){let g=document.getElementById('matchGrid');g.innerHTML='';matchArr.forEach((v,i)=>{let b=document.createElement('button');b.textContent=v;b.style.cssText='aspect-ratio:1;background:#101a29;border:1px solid #20354e;border-radius:9px;color:white;font-size:20px';b.onclick=()=>matchClick(i);g.appendChild(b)});document.getElementById('matchScore').textContent='Score: '+matchScore}
+function matchClick(i){if(selected===null){selected=i;return}if(selected===i){selected=null;return}let a=matchArr[selected],b=matchArr[i];if(Math.abs(selected-i)===1||Math.abs(selected-i)===6){[matchArr[selected],matchArr[i]]=[matchArr[i],matchArr[selected]];let changed=false;for(let r=0;r<6;r++){for(let c=0;c<4;c++){let k=r*6+c;if(matchArr[k]&&matchArr[k]===matchArr[k+1]&&matchArr[k]===matchArr[k+2]){matchArr[k]=matchArr[k+1]=matchArr[k+2]='';matchScore+=30;changed=true}}}for(let c=0;c<6;c++){for(let r=0;r<4;r++){let k=r*6+c;if(matchArr[k]&&matchArr[k]===matchArr[k+6]&&matchArr[k]===matchArr[k+12]){matchArr[k]=matchArr[k+6]=matchArr[k+12]='';matchScore+=30;changed=true}}}if(changed){let vals=matchArr.filter(Boolean);while(vals.length<36)vals.push(symbols[Math.floor(Math.random()*symbols.length)]);matchArr=vals}else [matchArr[selected],matchArr[i]]=[matchArr[i],matchArr[selected]]}selected=null;renderMatch()}
+newMatch();
+
+const ideas=[
+'Build a student-focused productivity hub that turns homework into short missions.',
+'Create a local creator marketplace for posters, logos and short-form video concepts.',
+'Build a game launcher where every mini-game has its own leaderboard later.',
+'Create a digital room designer with furniture, colours and layout presets.',
+'Build a personal learning dashboard that converts chapters into revision quests.'
+],vault=[];
+function newIdea(){document.getElementById('ideaResult').textContent=ideas[Math.floor(Math.random()*ideas.length)]}
+function saveIdea(){let t=document.getElementById('ideaResult').textContent;if(t&&t!=='Your next idea will appear here.'){vault.push(t);document.getElementById('vault').innerHTML=vault.map((x,i)=>`<div style="margin-bottom:8px"><b>${i+1}.</b> ${x}</div>`).join('')}}
+function planProject(){let n=document.getElementById('projectName').value.trim()||'New Project';document.getElementById('planResult').innerHTML=`<b>${n}</b><br><br>1. Define the core problem<br>2. Design the first interface<br>3. Build the smallest working version<br>4. Test on phone + laptop<br>5. Publish, collect feedback and improve`}
+const brandPrefixes=['Nova','Tav','Nexa','Vero','Luma','Astra','Vanta'],brandSuffixes=['Qon','verse','lab','forge','ora','byte','core'];
+function brandName(){document.getElementById('brandResult').textContent=brandPrefixes[Math.floor(Math.random()*brandPrefixes.length)]+brandSuffixes[Math.floor(Math.random()*brandSuffixes.length)]}
+
+function randHex(){return '#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0')}
+function palette(){let arr=Array.from({length:5},randHex);document.getElementById('palette').innerHTML=arr.map(c=>`<div class="swatch" style="background:${c}">${c}</div>`).join('');document.getElementById('paletteCodes').innerHTML=arr.map(c=>`<div class="mini">${c}</div>`).join('')}
+palette();
+function makePoster(){let t=document.getElementById('posterTitle').value||'TAVRYQON';let s=document.getElementById('posterSubtitle').value||'One Ecosystem. Endless Innovation.';document.getElementById('poster').innerHTML=`<div style="padding:20px"><div style="font-size:30px;font-weight:900;letter-spacing:2px">${t}</div><div style="color:#73c8ff;margin-top:7px">${s}</div><div style="font-size:11px;color:#718198;margin-top:25px">CREATED BY RUMAN HUSSAIN</div></div>`}
+function writeStarter(){let t=document.getElementById('writeTopic').value.trim()||'the future';document.getElementById('writeResult').textContent=`Write a clear, engaging introduction about ${t}. Start with a strong hook, explain why it matters, give one practical example, and finish with a forward-looking thought.`}
+function storyStarter(){let a=['a hidden city beneath a modern school','an abandoned game console that remembers its player','a young inventor who discovers a strange signal','a startup built from one impossible idea'];document.getElementById('storyResult').textContent='Story idea: '+a[Math.floor(Math.random()*a.length)]+'. The main character must decide whether to keep the discovery secret or use it to change their world.'}
+function buildPrompt(){let s=document.getElementById('promptSubject').value.trim()||'a futuristic website';document.getElementById('promptResult').textContent=`Create ${s}. Style: premium, futuristic, clean and original. Audience: young digital creators. Include a strong visual hierarchy, useful functionality, mobile responsiveness and a polished user experience. Avoid copied branding or copyrighted assets.`}
+function sendMail(e){e.preventDefault();let n=document.getElementById('contactName').value,em=document.getElementById('contactEmail').value,m=document.getElementById('contactMessage').value;location.href='mailto:?subject='+encodeURIComponent('TAVRYQON Contact from '+n)+'&body='+encodeURIComponent('Name: '+n+'\\nEmail: '+em+'\\n\\n'+m)}
+</script>
+</body>
+</html>
